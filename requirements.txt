@@ -1,0 +1,12 @@
+pandas
+fastapi
+uvicorn
+streamlit
+fastai
+torch
+torchvision
+pillow
+requests
+matplotlib
+numpy
+python-multipart
