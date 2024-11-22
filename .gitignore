@@ -1,8 +1,1 @@
 data/
-models/captcha_models/best_captcha_model.pth
-models/captcha_models/captcha_solver.pth
-models/seq_captcha_models/captcha_model_char_1.pkl
-models/seq_captcha_models/captcha_model_char_2.pkl
-models/seq_captcha_models/captcha_model_char_3.pkl
-models/seq_captcha_models/captcha_model_char_4.pkl
-models/seq_captcha_models/captcha_model_char_5.pkl
