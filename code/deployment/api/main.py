@@ -8,18 +8,8 @@ import pathlib
 from fastapi.middleware.cors import CORSMiddleware
 import torch.nn as nn
 from torchvision.models import resnet50
+from code.models.one_go_resnet import CaptchaSolver
 
-class CaptchaSolver(nn.Module):
-    def __init__(self):
-        super(CaptchaSolver, self).__init__()
-        self.backbone = resnet50(pretrained=True)
-        self.backbone.fc = nn.Identity()
-        self.fc = nn.Linear(2048, 5 * 62)
-        
-    def forward(self, x):
-        features = self.backbone(x)
-        out = self.fc(features)
-        return out.view(-1, 5, 62)
 
 captcha_model = CaptchaSolver()
 
@@ -36,8 +26,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 # Load models
-seq_models = [load_learner(f"../../../models/seq_captcha_models/captcha_model_char_{i + 1}.pkl") for i in range(5)]
-state_dict = torch.load("../../../models/captcha_models/captcha_solver.pth", map_location=torch.device('cpu'))
+seq_models = [load_learner(f"models/seq_captcha_models/captcha_model_char_{i + 1}.pkl") for i in range(5)]
+state_dict = torch.load("models/captcha_models/captcha_solver.pth", map_location=torch.device('cpu'))
 captcha_model.load_state_dict(state_dict)
 
 transform = transforms.Compose([
@@ -70,7 +60,6 @@ def whole_captcha_predict(model, image):
 
 @app.post("/predict/")
 async def predict_captcha(image: UploadFile = File(...)):
-    print("Endpoint hit")
     img = PILImage.create(await image.read())
     # Sequential prediction
     seq_prediction = sequential_predict(seq_models, img)

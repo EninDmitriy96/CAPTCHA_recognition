@@ -21,8 +21,6 @@ if uploaded_file is not None:
     with st.spinner("Making predictions..."):
         files = {"image": (uploaded_file.name, uploaded_file.read(), uploaded_file.type)}
         response = requests.post(API_URL, files=files)
-    print("Response status code:", response.status_code)
-    print("Response content:", response.content)
     if response.status_code == 200:
         predictions = response.json()
         st.subheader("Predictions:")
