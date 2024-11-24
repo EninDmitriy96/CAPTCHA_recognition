@@ -54,7 +54,7 @@ This project implements two approaches for recognizing CAPTCHA images using a **
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/EninDmitriy96/CAPTCHA_recognition/tree/main
+git clone https://github.com/EninDmitriy96/CAPTCHA_recognition
 cd <path_to_the_project>
 ```
 
