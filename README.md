@@ -63,7 +63,7 @@ cd <path_to_the_project>
   
 
 ```bash
-pip  install  -r  requirements.txt
+pip install -r requirements.txt
 ```
 
   
@@ -89,7 +89,7 @@ Place CAPTCHA images in the data/ directory or configure paths for your dataset.
   
 
 ```bash
-python  run_all.py
+python run_all.py
 ```
 
   
