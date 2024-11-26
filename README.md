@@ -3,9 +3,8 @@
 
   
 
-This project implements two approaches for recognizing CAPTCHA images using a **pretrained ResNet-50** architecture. A **Streamlit frontend** and a **FastAPI backend** are provided for easy interaction with the models.
+This project focuses on developing a robust CAPTCHA recognition system using deep learning techniques. Two approaches were implemented: a single model approach that processes the entire CAPTCHA image and a multiple classifiers approach, where separate classifiers are trained for each character position. Both methods utilize a ResNet50 architecture. A **Streamlit** application integrated with **FastAPI** was also developed to provide an interactive demonstration of the system's capabilities. The project underscores the effectiveness of deep learning in CAPTCHA recognition and provides a flexible, scalable solution for text-based CAPTCHAs.
 
-  
 
 ---
 
